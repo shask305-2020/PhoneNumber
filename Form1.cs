@@ -25,5 +25,19 @@ namespace PhoneNumber
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (sqlConnection.State == ConnectionState.Closed)
+                    sqlConnection.Open();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Сообщение об ошибке");
+            }
+        }
     }
 }
