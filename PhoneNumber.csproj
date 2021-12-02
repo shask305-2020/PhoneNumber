@@ -116,6 +116,7 @@
       <DependentUpon>Database.mdf</DependentUpon>
     </Content>
     <Content Include="MetroFramework.txt" />
+    <Content Include="SQLQuery1.sql" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
