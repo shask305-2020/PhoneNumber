@@ -37,7 +37,7 @@ namespace PhoneNumber
             this.txtNumber = new System.Windows.Forms.TextBox();
             this.rtxtAddr = new System.Windows.Forms.RichTextBox();
             this.dataGrid = new System.Windows.Forms.DataGridView();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
@@ -48,7 +48,7 @@ namespace PhoneNumber
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.button1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(192, 373);
+            this.button1.Location = new System.Drawing.Point(22, 362);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(139, 65);
             this.button1.TabIndex = 0;
@@ -115,35 +115,42 @@ namespace PhoneNumber
             this.dataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGrid.Location = new System.Drawing.Point(633, 90);
+            this.dataGrid.MultiSelect = false;
             this.dataGrid.Name = "dataGrid";
+            this.dataGrid.ReadOnly = true;
             this.dataGrid.RowHeadersWidth = 51;
             this.dataGrid.RowTemplate.Height = 24;
             this.dataGrid.Size = new System.Drawing.Size(571, 251);
             this.dataGrid.TabIndex = 9;
+            this.dataGrid.DoubleClick += new System.EventHandler(this.dataGrid_DoubleClick);
             // 
-            // button2
+            // btnDelete
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.button2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.Location = new System.Drawing.Point(347, 373);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(139, 65);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "Удалить";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnDelete.Enabled = false;
+            this.btnDelete.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnDelete.Location = new System.Drawing.Point(177, 362);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(139, 65);
+            this.btnDelete.TabIndex = 10;
+            this.btnDelete.Text = "Удалить";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.button3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button3.Location = new System.Drawing.Point(506, 373);
+            this.button3.Location = new System.Drawing.Point(336, 362);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(139, 65);
             this.button3.TabIndex = 11;
             this.button3.Text = "Сброс";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // txtSearch
             // 
@@ -174,7 +181,7 @@ namespace PhoneNumber
             this.Controls.Add(this.button4);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.dataGrid);
             this.Controls.Add(this.rtxtAddr);
             this.Controls.Add(this.txtNumber);
@@ -202,7 +209,7 @@ namespace PhoneNumber
         private System.Windows.Forms.TextBox txtNumber;
         private System.Windows.Forms.RichTextBox rtxtAddr;
         private System.Windows.Forms.DataGridView dataGrid;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button button4;
