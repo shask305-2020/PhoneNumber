@@ -116,7 +116,9 @@
       <DependentUpon>Database.mdf</DependentUpon>
     </Content>
     <Content Include="MetroFramework.txt" />
-    <Content Include="SQLQuery1.sql" />
+    <Content Include="SQL_Zaprosy\ContactAddOrEdit.sql" />
+    <Content Include="SQL_Zaprosy\ContactViewOrSearch.sql" />
+    <Content Include="SQL_Zaprosy\Table.Contact.sql" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
