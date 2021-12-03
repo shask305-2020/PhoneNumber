@@ -32,6 +32,45 @@ namespace PhoneNumber
             {
                 if (sqlConnection.State == ConnectionState.Closed)
                     sqlConnection.Open();
+                SqlCommand sqlCmd = new SqlCommand("ContactAddOrEdit", sqlConnection);
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+                sqlCmd.Parameters.AddWithValue("@mode", "Add");
+                sqlCmd.Parameters.AddWithValue("@ContactID", 0);
+                sqlCmd.Parameters.AddWithValue("@Name", txtName.Text.Trim());
+                sqlCmd.Parameters.AddWithValue("@MobileNumber", txtNumber.Text.Trim());
+                sqlCmd.Parameters.AddWithValue("@Address", rtxtAddr.Text.Trim());
+                sqlCmd.ExecuteNonQuery();
+                MessageBox.Show("Сохранение успешно");
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Сообщение об ошибке");
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+        }
+
+        void FillDataGridView()
+        {
+            if (sqlConnection.State == ConnectionState.Closed)
+                sqlConnection.Open();
+            SqlDataAdapter sqlData = new SqlDataAdapter("ContactViewOrSearch", sqlConnection);
+            sqlData.SelectCommand.CommandType = CommandType.StoredProcedure;
+            sqlData.SelectCommand.Parameters.AddWithValue("@ContactName", txtSearch.Text.Trim());
+            DataTable dataTable = new DataTable();
+            sqlData.Fill(dataTable);
+            dataGrid.DataSource = dataTable;
+            sqlConnection.Close();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FillDataGridView();
             }
             catch (Exception ex)
             {
